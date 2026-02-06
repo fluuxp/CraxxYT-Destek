@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>CraxxYT - Sorun Bildirme</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #0066ff;
+            font-size: 48px;
+            margin: 10px 0 30px 0;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+            resize: none;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 25px;
+            font-size: 16px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .list {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Bot profil resmi -->
+        <img src="bot.png" alt="Bot Profil Resmi">
+
+        <!-- Büyük mavi yazı -->
+        <h1>CraxxYT</h1>
+
+        <!-- Başlık -->
+        <h2>Sorun Bildirme/İstek Kısımı</h2>
+
+        <!-- Metin alanı -->
+        <textarea id="text" placeholder="Sorununuzu veya isteğinizi yazın..."></textarea>
+
+        <!-- Gönder butonu -->
+        <button onclick="ekle()">Gönder</button>
+
+        <!-- Gözüken yazılar -->
+        <div class="list" id="liste"></div>
+    </div>
+
+    <script>
+        function ekle() {
+            const textArea = document.getElementById("text");
+            const liste = document.getElementById("liste");
+
+            const yazi = textArea.value.trim();
+            if (yazi === "") return;
+
+            const div = document.createElement("div");
+            div.className = "item";
+            div.textContent = yazi;
+
+            liste.prepend(div);
+            textArea.value = "";
+        }
+    </script>
+
+</body>
+</html>
